@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+env89/
 build/
 develop-eggs/
 dist/
