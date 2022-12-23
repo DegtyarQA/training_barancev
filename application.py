@@ -40,3 +40,13 @@ class Application:
         wd.find_element(By.NAME, 'group_footer').send_keys(group.footer)
         wd.find_element(By.NAME, 'submit').click()
         self.return_to_groups_page()
+
+    def return_to_groups_page(self):
+        wd = self.wd
+        wd.find_element(By.LINK_TEXT, 'group page').click()
+
+    def logout(self):
+        wd = self.wd
+        wd.find_element(By.LINK_TEXT, 'Logout').click()
+
+    de
