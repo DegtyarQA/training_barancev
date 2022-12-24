@@ -1,5 +1,6 @@
-from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
+from application import Application
+from group import Group
 
 def is_alert_present(wd):
     try:
@@ -11,12 +12,17 @@ def is_alert_present(wd):
 
 class test_add_group(unittest.TestCase):
     def setUp(self):
-        self.wd = WebDriver
-        self.wd.implicitly_wait(60)
+        self.app = Application
 
-    def open_home_page(self, wd):
-        wd.get("http://localhost/addressbook/")
+    def test_add_group(self):
+        self.app.login(username = 'admin', password = 'secret')
+        self.app.create_group(Group(name='fff', header='rrrr', footer='refdfd'))
+        self.app.logout()
 
+    def test_add_group(self):
+        self.app.login(username='admin', password='secret')
+        self.app.create_group(Group(name='', header='', footer=''))
+        self.app.logout()
 
 
 if __name__ == '__main__':
