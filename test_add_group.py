@@ -12,17 +12,20 @@ def is_alert_present(wd):
 
 class test_add_group(unittest.TestCase):
     def setUp(self):
-        self.app = Application
+        self.app = Application()
 
     def test_add_group(self):
-        self.app.login(username = 'admin', password = 'secret')
+        self.app.login(username = "admin", password = "secret")
         self.app.create_group(Group(name='fff', header='rrrr', footer='refdfd'))
         self.app.logout()
 
-    def test_add_group(self):
+    def test_add_empty_group(self):
         self.app.login(username='admin', password='secret')
         self.app.create_group(Group(name='', header='', footer=''))
         self.app.logout()
+
+    def tearDown(self):
+        self.app.destroy()
 
 
 if __name__ == '__main__':

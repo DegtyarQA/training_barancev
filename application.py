@@ -1,6 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+
 class Application:
 
     def __init__(self):
@@ -9,7 +10,7 @@ class Application:
 
     def open_home_page(self):
         wd = self.wd
-        wd.get("http://localhost/addressbook/")
+        wd.get("http://localhost/")
 
     def login(self, username, password):
         wd = self.wd
@@ -19,7 +20,7 @@ class Application:
         wd.find_element(By.NAME, 'user').send_keys(username)
         wd.find_element(By.NAME, 'pass').click()
         wd.find_element(By.NAME, 'pass').clear()
-        wd.find_element(By.NAME, 'pass').send_keys(username)
+        wd.find_element(By.NAME, 'pass').send_keys(password)
         wd.find_element(By.CSS_SELECTOR, 'input[type=\"submit\"]').click()
 
     def open_groups_page(self):
@@ -49,4 +50,7 @@ class Application:
         wd = self.wd
         wd.find_element(By.LINK_TEXT, 'Logout').click()
 
-    de
+    def destroy(self):
+        self.wd.quit()
+
+
